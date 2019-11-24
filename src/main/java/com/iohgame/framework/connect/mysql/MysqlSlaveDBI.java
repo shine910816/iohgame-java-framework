@@ -5,9 +5,9 @@ import java.sql.ResultSet;
 import com.iohgame.framework.connect.mysql.parameters.MysqlAccount;
 import com.iohgame.framework.connect.mysql.property.MysqlConnect;
 
-public class SlaveDatabase<T extends MysqlAccount> extends MysqlConnect<T>
+public class MysqlSlaveDBI<T extends MysqlAccount> extends MysqlConnect<T>
 {
-    public SlaveDatabase(T source)
+    public MysqlSlaveDBI(T source)
     {
         super(source);
     }

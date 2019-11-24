@@ -10,9 +10,9 @@ import com.iohgame.framework.utility.Utility;
 import com.iohgame.framework.utility.parameters.constant.ConstDatetime;
 import com.iohgame.framework.utility.parameters.constant.ConstQuote;
 
-public class MasterDatabase<T extends MysqlAccount> extends SlaveDatabase<T>
+public class MysqlMasterDBI<T extends MysqlAccount> extends MysqlSlaveDBI<T>
 {
-    public MasterDatabase(T source)
+    public MysqlMasterDBI(T source)
     {
         super(source);
     }
