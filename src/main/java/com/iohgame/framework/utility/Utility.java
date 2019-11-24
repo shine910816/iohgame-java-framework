@@ -14,9 +14,9 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
-import com.iohgame.framework.parameters.constant.ConstDatetime;
-import com.iohgame.framework.parameters.constant.ConstQuote;
-import com.iohgame.framework.parameters.property.Parameters;
+import com.iohgame.framework.utility.parameters.constant.ConstDatetime;
+import com.iohgame.framework.utility.parameters.constant.ConstQuote;
+import com.iohgame.framework.utility.parameters.property.Parameters;
 
 public class Utility
 {

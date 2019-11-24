@@ -1,6 +1,6 @@
-package com.iohgame.framework.parameters.constant;
+package com.iohgame.framework.utility.parameters.constant;
 
-import com.iohgame.framework.parameters.property.Parameters;
+import com.iohgame.framework.utility.parameters.property.Parameters;
 
 public enum ConstBreak implements Parameters
 {

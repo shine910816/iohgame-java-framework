@@ -1,6 +1,6 @@
 package com.iohgame.framework.utility;
 
-import com.iohgame.framework.parameters.constant.ConstDatetime;
+import com.iohgame.framework.utility.parameters.constant.ConstDatetime;
 
 public class Logger
 {

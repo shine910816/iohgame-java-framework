@@ -1,4 +1,4 @@
-package com.iohgame.framework.parameters.property;
+package com.iohgame.framework.utility.parameters.property;
 
 public interface Parameters extends OptionElement
 {
