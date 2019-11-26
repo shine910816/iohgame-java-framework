@@ -27,7 +27,7 @@ public class JiraConnect<T extends JiraAccount> extends ConnectBase<T>
         m_maxResult = account.authMax();
         if (!Utility.isEmpty(account.proxyHost()))
         {
-            String proxyPort = Utility.isEmpty(account.proxyport()) ? "80" : account.proxyport();
+            String proxyPort = Utility.isEmpty(account.proxyPort()) ? "80" : account.proxyPort();
 
             LOG.info("Set proxy to " + account.proxyHost() + ":" + proxyPort);
 

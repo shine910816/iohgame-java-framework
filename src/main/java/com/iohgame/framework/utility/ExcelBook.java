@@ -6,11 +6,12 @@ import java.io.FileOutputStream;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class ExcelBook extends MainClass
+public abstract class ExcelBook extends MainClass
 {
     private Workbook m_book;
     private Font m_font;
@@ -33,26 +34,31 @@ public class ExcelBook extends MainClass
         m_style.setFont(m_font);
     }
 
-    public Workbook getBook()
+    protected Workbook getBook()
     {
         return m_book;
     }
 
-    public Font getFont()
+    protected Font getFont()
     {
         return m_font;
     }
 
-    public CellStyle getStyle()
+    protected CellStyle getStyle()
     {
         return m_style;
+    }
+    
+    protected Sheet createSheet(String sheetName)
+    {
+        return m_book.createSheet(sheetName);
     }
 
     public void saveExcelFile(String path)
     {
         try
         {
-            File file = new File(path);
+            File file = new File(path + ".xls");
             if (file.exists())
             {
                 file.delete();

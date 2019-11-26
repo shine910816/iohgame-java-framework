@@ -8,7 +8,7 @@ public interface JiraAccount extends Account
 
     public String proxyHost();
 
-    public String proxyport();
+    public String proxyPort();
 
     public Integer authMax();
 }
