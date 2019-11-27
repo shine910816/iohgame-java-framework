@@ -1,0 +1,6 @@
+package com.iohgame.framework.utility.parameters.property;
+
+public interface Factory
+{
+    public void execute(OptionElement page);
+}
