@@ -6,11 +6,12 @@ import java.sql.SQLException;
 
 import com.iohgame.framework.connect.base.ConnectBase;
 import com.iohgame.framework.connect.mysql.parameters.MysqlAccount;
+import com.iohgame.framework.utility.parameters.property.Connectable;
 import com.iohgame.framework.utility.parameters.property.OptionElement;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 
-public class MysqlConnect<T extends MysqlAccount> extends ConnectBase<T>
+public class MysqlConnect<T extends MysqlAccount> extends ConnectBase implements Connectable<T>
 {
     private final String DATABASE_DRIVER = "com.mysql.jdbc.Driver";
     private Connection m_connect;
@@ -19,7 +20,6 @@ public class MysqlConnect<T extends MysqlAccount> extends ConnectBase<T>
 
     public MysqlConnect(T account)
     {
-        super(account);
         String addr = "jdbc:mysql://" + account.requestUrl() + ":" + account.port() + "/" + account.databaseName();
         if (m_connect == null)
         {

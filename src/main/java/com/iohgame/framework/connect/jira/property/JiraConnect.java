@@ -15,15 +15,15 @@ import com.atlassian.jira.rest.client.internal.async.AsynchronousJiraRestClientF
 import com.iohgame.framework.connect.base.ConnectBase;
 import com.iohgame.framework.connect.jira.parameters.JiraAccount;
 import com.iohgame.framework.utility.Utility;
+import com.iohgame.framework.utility.parameters.property.Connectable;
 
-public class JiraConnect<T extends JiraAccount> extends ConnectBase<T>
+public class JiraConnect<T extends JiraAccount> extends ConnectBase implements Connectable<T>
 {
     private SearchRestClient m_searchRestClient;
     private final Integer m_maxResult;
 
     public JiraConnect(T account)
     {
-        super(account);
         m_maxResult = account.authMax();
         if (!Utility.isEmpty(account.proxyHost()))
         {
@@ -40,7 +40,7 @@ public class JiraConnect<T extends JiraAccount> extends ConnectBase<T>
         {
             JiraRestClientFactory factory = new AsynchronousJiraRestClientFactory();
             URI uri = new URI(account.requestUrl());
-            m_searchRestClient = factory.createWithBasicHttpAuthentication(uri, userName(), password()).getSearchClient();
+            m_searchRestClient = factory.createWithBasicHttpAuthentication(uri, account.userName(), account.password()).getSearchClient();
         }
         catch (URISyntaxException e)
         {
