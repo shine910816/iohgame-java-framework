@@ -13,20 +13,25 @@ import com.mysql.jdbc.Statement;
 
 public class MysqlConnect<T extends MysqlAccount> extends ConnectBase implements Connectable<T>
 {
-    private final String DATABASE_DRIVER = "com.mysql.jdbc.Driver";
+    private final String m_request;
+    private final String m_userName;
+    private final String m_password;
+
     private Connection m_connect;
     private Statement m_statement;
     private ResultSet m_result;
 
     public MysqlConnect(T account)
     {
-        String addr = "jdbc:mysql://" + account.requestUrl() + ":" + account.port() + "/" + account.databaseName();
+        m_request = "jdbc:mysql://" + account.requestUrl() + ":" + account.port() + "/" + account.databaseName();
+        m_userName = account.userName();
+        m_password = account.password();
         if (m_connect == null)
         {
             try
             {
-                Class.forName(DATABASE_DRIVER);
-                m_connect = (Connection) DriverManager.getConnection(addr, account.userName(), account.password());
+                Class.forName("com.mysql.jdbc.Driver");
+                m_connect = (Connection) DriverManager.getConnection(m_request, m_userName, m_password);
             }
             catch (Exception e)
             {
@@ -80,11 +85,11 @@ public class MysqlConnect<T extends MysqlAccount> extends ConnectBase implements
                 m_statement.close();
                 m_statement = null;
             }
-            if (m_connect != null)
-            {
-                m_connect.close();
-                m_connect = null;
-            }
+            // if (m_connect != null)
+            // {
+            // m_connect.close();
+            // m_connect = null;
+            // }
         }
         catch (Exception e)
         {
