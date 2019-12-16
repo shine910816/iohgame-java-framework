@@ -12,7 +12,7 @@ public enum ConstBreak implements Parameters
 
     private String m_val;
 
-    ConstBreak(String val)
+    private ConstBreak(String val)
     {
         m_val = val;
     }

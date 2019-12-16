@@ -50,7 +50,7 @@ public enum ConstDatetime implements Parameters
 
     private final String m_val;
 
-    ConstDatetime(String val)
+    private ConstDatetime(String val)
     {
         m_val = val;
     }
