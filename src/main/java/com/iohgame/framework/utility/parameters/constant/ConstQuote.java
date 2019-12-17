@@ -14,7 +14,7 @@ public enum ConstQuote implements Parameters
 
     private String m_val;
 
-    ConstQuote(String val)
+    private ConstQuote(String val)
     {
         m_val = val;
     }
