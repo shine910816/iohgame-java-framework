@@ -1,6 +1,7 @@
 package com.iohgame.framework.utility;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.text.ParseException;
@@ -13,6 +14,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+
+import org.yaml.snakeyaml.Yaml;
 
 import com.iohgame.framework.utility.parameters.constant.ConstDatetime;
 import com.iohgame.framework.utility.parameters.constant.ConstQuote;
@@ -355,5 +358,19 @@ public class Utility
     public static FileReader getFileReaderResource(String filePath)
     {
         return getFileReaderResource(getFileResource(filePath));
+    }
+
+    public static Object yamlAnalysis(String fileName)
+    {
+        Object result = null;
+        try
+        {
+            result = new Yaml().load(new FileInputStream(getFileResource("yaml/" + fileName + ".yaml")));
+        }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        return result;
     }
 }
