@@ -6,8 +6,9 @@ public abstract class BatchAction<T extends ConnectBase> extends ServiceAction
 {
     private T m_connect;
 
-    public BatchAction(T connect)
+    public BatchAction(T connect, Request request)
     {
+        super(request);
         m_connect = connect;
     }
 
