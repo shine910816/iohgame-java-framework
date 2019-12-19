@@ -172,6 +172,25 @@ public class Utility
         return (T) enumList.iterator().next().unknown();
     }
 
+    /**
+     * Split keyword and match corresponding enumeration value
+     * 
+     * @param keyword
+     *            split by ","
+     * @param clazz
+     *            enumeration class
+     * @return
+     */
+    public static <T extends Enum<T> & Parameters> List<T> getEnums(String keyword, Class<T> clazz)
+    {
+        List<T> result = new ArrayList<>();
+        for (String val : keyword.split(","))
+        {
+            result.add(getEnum(val, clazz));
+        }
+        return result;
+    }
+
     public static <T> List<T> toList(T[] args)
     {
         List<T> result = new ArrayList<>();
