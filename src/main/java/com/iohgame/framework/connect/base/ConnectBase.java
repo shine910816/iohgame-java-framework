@@ -8,4 +8,9 @@ public abstract class ConnectBase extends MainClass
     {
         return param.equals("0") ? false : true;
     }
+
+    protected String toString(Object param)
+    {
+        return (String) param;
+    }
 }
