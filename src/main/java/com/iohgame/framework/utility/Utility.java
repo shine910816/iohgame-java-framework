@@ -201,6 +201,11 @@ public class Utility
         return result;
     }
 
+    public static Integer doubleFloor(Double param)
+    {
+        return (int) Math.floor(param);
+    }
+
     public static String implode(List<String> pieces, String glue, ConstQuote quote)
     {
         String result = "";
